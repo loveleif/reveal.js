@@ -8,16 +8,147 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/solar.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style type="text/css">
+			p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #819090; background-color: #fcf4dc}
+			p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #819090; background-color: #fcf4dc; min-height: 17.0px}
+			p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #269286; background-color: #fcf4dc}
+			p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #269286; background-color: #fcf4dc; min-height: 17.0px}
+			p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #475b62; background-color: #fcf4dc; min-height: 17.0px}
+			p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #475b62; background-color: #fcf4dc}
+			p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #a57706; background-color: #fcf4dc}
+			p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #c61c6f; background-color: #fcf4dc}
+			p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #595ab7; background-color: #fcf4dc; min-height: 17.0px}
+			p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #536870; background-color: #fcf4dc}
+			span.s1 {color: #475b62}
+			span.s2 {color: #269286}
+			span.s3 {color: #819090}
+			span.s4 {color: #536870}
+			span.s5 {color: #c61c6f}
+			span.s6 {color: #a57706}
+			span.s7 {color: #595ab7}
+			span.s8 {color: #bd3613}
+			span.s9 {color: #2176c7}
+			span.s10 {color: #16abad}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+				  /*<br/>
+				  &nbsp;*<br/>
+				  /*<br/>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, "Quiet" syntax<span class="Apple-converted-space">   </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><b></b><br></p>
+					<p class="p1"><b>if </b><span class="s1">x &lt; </span><span class="s2">0 </span><b>then</b></p>
+					<p class="p2"><span class="s3"><b><span class="Apple-converted-space">  </span></b></span>"negative"</p>
+					<p class="p1"><b>else if </b><span class="s1">x == </span><span class="s2">0 </span><b>then</b></p>
+					<p class="p2"><span class="s3"><b><span class="Apple-converted-space">  </span></b></span>"zero"</p>
+					<p class="p1"><b>else</b></p>
+					<p class="p2"><span class="s3"><b><span class="Apple-converted-space">  </span></b></span>"positive"</p>
+					<p class="p3"><br></p>
+					<p class="p1"><b>if </b><span class="s1">x &lt; </span><span class="s2">0 </span><b>then </b><span class="s1">-x </span><b>else </b><span class="s1">x</span></p>
+					<p class="p4"><br></p>
+					<p class="p5"><span class="s3"><b>while </b></span>x &gt;= <span class="s2">0 </span><span class="s3"><b>do </b></span>x = f(x)</p>
+					<p class="p4"><br></p>
+					<p class="p5"><span class="s3"><b>for </b></span>x &lt;- xs <span class="s3"><b>if </b></span>x &gt; <span class="s2">0</span></p>
+					<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><b>yield </b><span class="s1">x * x</span></p>
+					<p class="p4"><br></p>
+					<p class="p1"><b>for</b></p>
+					<p class="p5"><span class="s3"><b><span class="Apple-converted-space">  </span></b></span>x &lt;- xs</p>
+					<p class="p5"><span class="Apple-converted-space">  </span>y &lt;- ys</p>
+					<p class="p1"><b>do</b></p>
+					<p class="p5"><span class="s3"><b><span class="Apple-converted-space">  </span></b></span><span class="s4"><i>println</i></span>(x + y)</p>
+					<p class="p4"><span class="Apple-converted-space">    </span></p>
+					<p class="p5"><span class="s3"><b>try </b></span>body</p>
+					<p class="p5"><span class="s3"><b>catch case </b></span><span class="s5">ex</span>: <span class="s6">IOException </span>=&gt; handle()</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, Optional braces</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p1"><b>package </b><span class="s1">p1.p2:</span></p>
+					<p class="p5"><br></p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span></span><b>abstract class </b><span class="s6">C</span><span class="s1">():</span></p>
+					<p class="p5"><span class="Apple-converted-space">  </span></p>
+					<p class="p6"><span class="Apple-converted-space">    </span><span class="s3"><b>def this</b></span>(<span class="s7">x</span>: <span class="s8">Int</span>) =</p>
+					<p class="p6"><span class="Apple-converted-space">      </span><span class="s3"><b>this</b></span>()</p>
+					<p class="p6"><span class="Apple-converted-space">      </span><span class="s3"><b>if </b></span>x &gt; <span class="s2">0 </span><span class="s3"><b>then</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">        </span>val </b><span class="s1">a </span><span class="s4"><i>:: </i></span><span class="s1">b =</span></p>
+					<p class="p6"><span class="Apple-converted-space">          </span>x <span class="s9">:: </span><span class="s4"><b><i>Nil</i></b></span></p>
+					<p class="p10"><b><i><span class="Apple-converted-space">        </span></i></b><span class="s1">end </span><span class="s3"><b>val</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">        </span>var </b><span class="s4"><b><i>y </i></b></span><span class="s1">=</span></p>
+					<p class="p6"><span class="Apple-converted-space">        </span>x</p>
+					<p class="p6"><span class="Apple-converted-space">        </span>end y</p>
+					<p class="p6"><span class="Apple-converted-space">        </span><span class="s3"><b>while </b></span><span class="s4"><b><i>y </i></b></span>&gt; <span class="s2">0 </span><span class="s3"><b>do</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">          </span></b><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s4"><b><i>y</i></b></span><span class="s1">)</span></p>
+					<p class="p6"><span class="Apple-converted-space">          </span><span class="s4"><b><i>y </i></b></span>-= <span class="s2">1</span></p>
+					<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><b>end while</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">        </span>try</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">          </span></b><span class="s1">x </span><b>match</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">            </span>case </b><span class="s2">0 </span><span class="s1">=&gt; </span><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s2">"0"</span><span class="s1">)</span></p>
+					<p class="p6"><span class="Apple-converted-space">            </span><span class="s3"><b>case </b></span>_ =&gt;</p>
+					<p class="p6"><span class="Apple-converted-space">          </span><span class="s3"><b>end match</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">        </span>finally</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">          </span></b><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s2">"done"</span><span class="s1">)</span></p>
+					<p class="p6"><span class="Apple-converted-space">        </span><span class="s3"><b>end try</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">      </span>end if</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">    </span></b><span class="s1">end </span><b>this</b></p>
+					<p class="p2"><b><span class="Apple-converted-space">  </span></b></p>
+					<p class="p1"><b><span class="Apple-converted-space">    </span>def </b><span class="s9">f</span><span class="s1">: </span><span class="s8">String</span></p>
+					<p class="p1"><span class="s8"><span class="Apple-converted-space">  </span></span><b>end </b><span class="s1">C</span></p>
+					<p class="p5"><br></p>
+					<p class="p6">end p2</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, new keyword is optional</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><b></b><br></p>
+					<p class="p7"><span class="s3"><b>class </b></span>ImEasyToInstantiate<span class="s1">(</span><span class="s7">name</span><span class="s1">: </span><span class="s8">String</span><span class="s1">) {</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>def </b></span><span class="s9">hello</span>(): <span class="s8">Unit </span>= <span class="s4"><i>println</i></span>(<span class="s9">s</span><span class="s2">"hello </span><span class="s10"><b>$</b></span><span class="s7">name</span><span class="s2">"</span>)</p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p6">ImEasyToInstantiate(<span class="s2">"universal apply methods"</span>).hello()</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, heavily revised implicits</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p1"><b>trait </b><span class="s6">Ord</span><span class="s1">[</span><span class="s9">T</span><span class="s1">]:</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>def </b></span><span class="s9">compare</span>(<span class="s7">x</span>: <span class="s9">T</span>, <span class="s7">y</span>: <span class="s9">T</span>): <span class="s8">Int</span></p>
+					<p class="p6"><span class="s8"><span class="Apple-converted-space">  </span></span><span class="s3"><b>extension </b></span>(<span class="s7">x</span>: <span class="s9">T</span>) <span class="s3"><b>def </b></span><span class="s9">&lt; </span>(<span class="s7">y</span>: <span class="s9">T</span>) = <span class="s9">compare</span>(x, <span class="s7">y</span>) &lt; <span class="s2">0</span></p>
+					<p class="p6"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s3"><b>extension </b></span>(<span class="s7">x</span>: <span class="s9">T</span>) <span class="s3"><b>def </b></span><span class="s9">&gt; </span>(<span class="s7">y</span>: <span class="s9">T</span>) = <span class="s9">compare</span>(x, <span class="s7">y</span>) &gt; <span class="s2">0</span></p>
+					<p class="p4"><br></p>
+					<p class="p6"><span class="s3"><b>given </b></span>intOrd: Ord[<span class="s8">Int</span>] <span class="s3"><b>with</b></span></p>
+					<p class="p6"><span class="s3"><b><span class="Apple-converted-space">  </span>def </b></span><span class="s9">compare</span>(<span class="s7">x</span>: <span class="s8">Int</span>, <span class="s7">y</span>: <span class="s8">Int</span>) =</p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span></span><b>if </b><span class="s7">x </span><span class="s1">&lt; </span><span class="s7">y </span><b>then </b><span class="s1">-</span><span class="s2">1 </span><b>else if </b><span class="s7">x </span><span class="s1">&gt; </span><span class="s7">y </span><b>then </b><span class="s1">+</span><span class="s2">1 </span><b>else </b><span class="s2">0</span></p>
+					<p class="p4"><br></p>
+					<p class="p6"><span class="s3"><b>given </b></span>[T](<span class="s3"><b>using </b></span>ord: <span class="s6">Ord</span>[T]): Ord[<span class="s8">List</span>[T]] <span class="s3"><b>with</b></span></p>
+					<p class="p6"><span class="s3"><b><span class="Apple-converted-space">  </span>def </b></span><span class="s9">compare</span>(<span class="s7">xs</span>: <span class="s8">List</span>[T], <span class="s7">ys</span>: <span class="s8">List</span>[T]): <span class="s8">Int </span>= (<span class="s7">xs</span>, <span class="s7">ys</span>) <span class="s3"><b>match</b></span></p>
+					<p class="p1"><b><span class="Apple-converted-space">    </span>case </b><span class="s1">(</span><span class="s4"><b><i>Nil</i></b></span><span class="s1">, </span><span class="s4"><b><i>Nil</i></b></span><span class="s1">) =&gt; </span><span class="s2">0</span></p>
+					<p class="p6"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"><b>case </b></span>(<span class="s4"><b><i>Nil</i></b></span>, _) =&gt; -<span class="s2">1</span></p>
+					<p class="p6"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"><b>case </b></span>(_, <span class="s4"><b><i>Nil</i></b></span>) =&gt; +<span class="s2">1</span></p>
+					<p class="p8"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"><b>case </b></span><span class="s1">(</span>x <span class="s4"><i>:: </i></span>xs1<span class="s1">, </span>y <span class="s4"><i>:: </i></span>ys1<span class="s1">) =&gt;</span></p>
+					<p class="p6"><span class="Apple-converted-space">      </span><span class="s3"><b>val </b></span>fst = ord.compare(<span class="s5">x</span>, <span class="s5">y</span>)</p>
+					<p class="p6"><span class="Apple-converted-space">      </span><span class="s3"><b>if </b></span>fst != <span class="s2">0 </span><span class="s3"><b>then </b></span>fst <span class="s3"><b>else </b></span>compare(<span class="s5">xs1</span>, <span class="s5">ys1</span>)</p>
+					<p class="p5"><br></p>
+					<p class="p6"><span class="s3"><b>def </b></span><span class="s9">max</span>[<span class="s9">T</span>](<span class="s7">x</span>: <span class="s9">T</span>, <span class="s7">y</span>: <span class="s9">T</span>)(<span class="s3"><b>using </b></span><span class="s7">ord</span>: <span class="s6">Ord</span>[<span class="s9">T</span>]): <span class="s9">T </span>=</p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span></span><b>if </b><span class="s7">ord</span><span class="s1">.</span><span class="s9">compare</span><span class="s1">(</span><span class="s7">x</span><span class="s1">, </span><span class="s7">y</span><span class="s1">) &lt; </span><span class="s2">0 </span><b>then </b><span class="s7">y </span><b>else </b><span class="s7">x</span></p>
+					<p class="p9"><br></p>
+					<p class="p6">max(<span class="s2">1</span>, <span class="s2">2</span>)(<span class="s3"><b>using </b></span>intOrd)</p>
+					<p class="p6">max(<span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">2</span>), <span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">3</span>))</p>
+				</section>
 			</div>
 		</div>
 
