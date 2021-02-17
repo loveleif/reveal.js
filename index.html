@@ -23,6 +23,11 @@
 			p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #c61c6f; background-color: #fcf4dc}
 			p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #595ab7; background-color: #fcf4dc; min-height: 17.0px}
 			p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #536870; background-color: #fcf4dc}
+			p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #2176c7; background-color: #fcf4dc}
+			p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #595ab7; background-color: #fcf4dc}
+			p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #738a05; background-color: #fcf4dc}
+			p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #bd3613; background-color: #fcf4dc}
+			p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #bd3613; background-color: #fcf4dc; min-height: 17.0px}
 			span.s1 {color: #475b62}
 			span.s2 {color: #269286}
 			span.s3 {color: #819090}
@@ -42,6 +47,123 @@
 				  /*<br/>
 				  &nbsp;*<br/>
 				  /*<br/>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">  </span>* Scala 3, enums</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">  </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p6"><span class="s3"><b>enum </b></span>Color:</p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>case </b></span>Red, Green, Blue</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, new keyword is optional</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><b></b><br></p>
+					<p class="p7"><span class="s3"><b>class </b></span>ImEasyToInstantiate<span class="s1">(</span><span class="s7">name</span><span class="s1">: </span><span class="s8">String</span><span class="s1">) {</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>def </b></span><span class="s9">hello</span>(): <span class="s8">Unit </span>= <span class="s4"><i>println</i></span>(<span class="s9">s</span><span class="s2">"hello </span><span class="s10"><b>$</b></span><span class="s7">name</span><span class="s2">"</span>)</p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p6">ImEasyToInstantiate(<span class="s2">"universal apply methods"</span>).hello()</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">  </span>* Scala 3, union types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">  </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p14"><span class="s3"><b>def </b></span><span class="s9">biCurious</span><span class="s1">(</span><span class="s7">input</span><span class="s1">: </span>String <span class="s1">| </span>Int<span class="s1">): </span>Unit <span class="s1">= {</span></p>
+					<p class="p12"><span class="s1"><span class="Apple-converted-space">  </span></span>input <span class="s3"><b>match </b></span><span class="s1">{</span></p>
+					<p class="p3"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3"><b>case </b></span><span class="s5">s</span><span class="s1">: </span><span class="s8">String </span><span class="s1">=&gt; </span><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s9">s</span>"I like strings like this <span class="s10"><b>$</b></span><span class="s5">s</span>"<span class="s1">)</span></p>
+					<p class="p3"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3"><b>case </b></span><span class="s5">i</span><span class="s1">: </span><span class="s8">Int </span><span class="s1">=&gt; </span><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s9">s</span>"Ints are also my cup of tea <span class="s10"><b>$</b></span><span class="s5">i</span>"<span class="s1">)</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span>}</p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p6">biCurious(<span class="s2">1</span>)</p>
+					<p class="p6">biCurious(<span class="s2">"a"</span>)</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, intersection types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p7"><span class="s3"><b>trait </b></span>EatCake <span class="s1">{</span></p>
+					<p class="p11"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>def </b></span>eatCake<span class="s1">(): </span><span class="s8">Unit</span></p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p7"><span class="s3"><b>trait </b></span>KeepCake <span class="s1">{</span></p>
+					<p class="p11"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>def </b></span>keepCake<span class="s1">(): </span><span class="s8">Unit</span></p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p7"><span class="s3"><b>def </b></span><span class="s9">wantsItAll</span><span class="s1">(</span><span class="s7">input</span><span class="s1">: </span>EatCake <span class="s1">&amp; </span>KeepCake<span class="s1">): </span><span class="s8">Unit </span><span class="s1">= {</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s7">input</span>.eatCake()</p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s7">input</span>.keepCake()</p>
+					<p class="p6">}</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, explicit nulls</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i><span class="Apple-converted-space">  </span></i></p>
+					<p class="p10"><span class="s3"><b>val </b></span><b><i>definetelyString</i></b><span class="s1">: </span><span class="s8">String </span><span class="s1">= </span><span class="s2">"Hej"</span></p>
+					<p class="p4"><br></p>
+					<p class="p1"><i>//val someString: String = null // error: found `Null`,<span class="Apple-converted-space">  </span>but required `String`</i></p>
+					<p class="p1"><b>val </b><span class="s4"><b><i>couldBeAString</i></b></span><span class="s1">: </span><span class="s8">String </span><span class="s1">| </span><span class="s8">Null </span><span class="s1">= </span><b>null </b><i>// ok</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p1"><span class="s4"><b><i>couldBeAString </i></b></span><span class="s1">== </span><b>null <span class="Apple-converted-space">      </span></b><i>// ok</i></p>
+					<p class="p1"><i>// definetelyStrig == null<span class="Apple-converted-space">    </span>error!</i></p>
+					<p class="p1"><i>// definetelyStrig eq null<span class="Apple-converted-space">    </span>error!</i></p>
+					<p class="p1"><i>// "hello" == null<span class="Apple-converted-space">            </span>error!</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p1"><i>// Flow typing</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p10"><span class="s3"><b>if </b></span><b><i>couldBeAString </i></b><span class="s1">!= </span><span class="s3"><b>null then </b></span><i>println</i><span class="s1">(</span><b><i>couldBeAString</i></b><span class="s1">.size)</span></p>
+					<p class="p5"><br></p>
+					<p class="p10"><i>assert</i><span class="s1">(</span><b><i>couldBeAString </i></b><span class="s1">!= </span><span class="s3"><b>null</b></span><span class="s1">)</span></p>
+					<p class="p10"><i>println</i><span class="s1">(</span><b><i>couldBeAString</i></b><span class="s1">.size)</span></p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Opaque types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p6"><span class="s3"><b>object </b></span>Nodes {</p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span></span><b>opaque type </b><span class="s8">NodeId </span><span class="s1">= </span><span class="s8">Long</span></p>
+					<p class="p14"><span class="Apple-converted-space">  </span><span class="s3"><b>type </b></span>LongTypeAlias <span class="s1">= </span>Long</p>
+					<p class="p15"><br></p>
+					<p class="p6"><span class="s8"><span class="Apple-converted-space">  </span></span><span class="s3"><b>object </b></span>NodeId {</p>
+					<p class="p6"><span class="Apple-converted-space">    </span><span class="s3"><b>def </b></span><span class="s9">apply</span>(<span class="s7">id</span>: <span class="s8">Long</span>): <span class="s8">NodeId </span>= <span class="s7">id</span></p>
+					<p class="p12"><span class="Apple-converted-space">  </span><span class="s1">}</span></p>
+					<p class="p5"><span class="Apple-converted-space">  </span></p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p6"><span class="s3"><b>val </b></span>nodeIdOne: Nodes.<span class="s8">NodeId </span>= Nodes.<span class="s4"><i>NodeId</i></span>(<span class="s2">1</span>)</p>
+					<p class="p5"><br></p>
+					<p class="p1"><b>val </b><span class="s1">nodeIdTwo: Nodes.</span><span class="s8">LongTypeAlias </span><span class="s1">= </span><span class="s2">2 </span><i>// Will not work with opaque type</i></p>
+					<p class="p1"><b>val </b><span class="s1">y = nodeIdTwo * </span><span class="s2">2 </span><i>// Will also not work with opaque types</i></p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, dependent function types<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p7"><span class="s3"><b>trait </b></span>Entity <span class="s1">{</span></p>
+					<p class="p14"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>type </b></span>IdType</p>
+					<p class="p14"><span class="Apple-converted-space">  </span><span class="s3"><b>def </b></span><span class="s9">id</span><span class="s1">: </span>IdType</p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p6"><span class="s3"><b>object </b></span>Entity {</p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span></span><b>def </b><span class="s9">extractId</span><span class="s1">(</span><span class="s7">e</span><span class="s1">: </span><span class="s6">Entity</span><span class="s1">): </span><span class="s7">e</span><span class="s1">.</span><span class="s8">IdType </span><span class="s1">= </span><span class="s7">e</span><span class="s1">.</span><span class="s9">id </span><i>// Since Scala 2</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">  </span></i><b>val </b><span class="s4"><b><i>extractor</i></b></span><span class="s1">: (</span><span class="s7">e</span><span class="s1">: </span><span class="s6">Entity</span><span class="s1">) =&gt; e.IdType = </span><span class="s4"><i>extractId </i></span><i>// New in Scala 3</i></p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p1"><b>class </b><span class="s6">Node</span><span class="s1">(</span><b>val </b><span class="s7">id</span><span class="s1">: </span><span class="s8">Long</span><span class="s1">) </span><b>extends </b><span class="s6">Entity </span><span class="s1">{</span></p>
+					<p class="p14"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>type </b></span>IdType <span class="s1">= </span>Long</p>
+					<p class="p6">}</p>
+					<p class="p5"><br></p>
+					<p class="p1"><b>class </b><span class="s6">NodeLabel</span><span class="s1">(</span><b>val </b><span class="s7">id</span><span class="s1">: </span><span class="s8">Int</span><span class="s1">) </span><b>extends </b><span class="s6">Entity </span><span class="s1">{</span></p>
+					<p class="p14"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>type </b></span>IdType <span class="s1">= </span>Int</p>
+					<p class="p6">}</p>
 				</section>
 				<section>
 					<p class="p1"><i>/**</i></p>
@@ -110,17 +232,6 @@
 					<p class="p6">end p2</p>
 				</section>
 				<section>
-					<p class="p1"><i>/**<span class="Apple-converted-space"> </span></i></p>
-					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, new keyword is optional</i></p>
-					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
-					<p class="p2"><b></b><br></p>
-					<p class="p7"><span class="s3"><b>class </b></span>ImEasyToInstantiate<span class="s1">(</span><span class="s7">name</span><span class="s1">: </span><span class="s8">String</span><span class="s1">) {</span></p>
-					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>def </b></span><span class="s9">hello</span>(): <span class="s8">Unit </span>= <span class="s4"><i>println</i></span>(<span class="s9">s</span><span class="s2">"hello </span><span class="s10"><b>$</b></span><span class="s7">name</span><span class="s2">"</span>)</p>
-					<p class="p6">}</p>
-					<p class="p5"><br></p>
-					<p class="p6">ImEasyToInstantiate(<span class="s2">"universal apply methods"</span>).hello()</p>
-				</section>
-				<section>
 					<p class="p1"><i>/**</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, heavily revised implicits</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
@@ -148,6 +259,29 @@
 					<p class="p9"><br></p>
 					<p class="p6">max(<span class="s2">1</span>, <span class="s2">2</span>)(<span class="s3"><b>using </b></span>intOrd)</p>
 					<p class="p6">max(<span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">2</span>), <span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">3</span>))</p>
+				</section>
+				<section>
+					<p class="p1"><i>/**</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, implicit conversions</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p1"><b>case class </b><span class="s6">Token</span><span class="s1">(</span><span class="s7">value</span><span class="s1">: </span><span class="s8">String</span><span class="s1">)</span></p>
+					<p class="p5"><br></p>
+					<p class="p1"><b>object </b><span class="s1">Token:</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>given </b></span>fromInt: Conversion[<span class="s8">Int</span>, <span class="s6">Token</span>] <span class="s3"><b>with</b></span></p>
+					<p class="p11"><span class="s3"><b><span class="Apple-converted-space">    </span>def </b></span>apply<span class="s1">(</span><span class="s7">int</span><span class="s1">: </span><span class="s8">Int</span><span class="s1">): </span><span class="s6">Token </span><span class="s1">= </span><span class="s4"><i>Token</i></span><span class="s1">(</span><span class="s7">int</span><span class="s1">.</span>toString<span class="s1">)</span></p>
+					<p class="p5"><br></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>given </b></span>fromString: Conversion[<span class="s8">String</span>, <span class="s6">Token</span>] = Token(_)</p>
+					<p class="p6"><span class="s3"><b>end </b></span>Token</p>
+					<p class="p5"><br></p>
+					<p class="p12"><span class="s3"><b>def </b></span><span class="s9">feedMeToken</span><span class="s1">(</span>token<span class="s1">: </span><span class="s6">Token</span><span class="s1">) = </span><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s9">s</span><span class="s2">"Mmmm, I like </span><span class="s10"><b>$</b></span><span class="s1">{</span>token<span class="s1">.</span>value<span class="s1">}</span><span class="s2">"</span><span class="s1">)</span></p>
+					<p class="p5"><br></p>
+					<p class="p13">@main <span class="s3"><b>def </b></span><span class="s9">hello</span><span class="s1">: </span><span class="s8">Unit </span><span class="s1">= {</span></p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s4"><i>println</i></span>(Token.fromInt(<span class="s2">1</span>))</p>
+					<p class="p5"><br></p>
+					<p class="p10"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3"><b>import </b></span><span class="s1">scala.language.</span><b><i>implicitConversions</i></b></p>
+					<p class="p6"><span class="s4"><b><i><span class="Apple-converted-space">  </span></i></b></span>feedMeToken(<span class="s2">1</span>)</p>
+					<p class="p6">}</p>
 				</section>
 			</div>
 		</div>
