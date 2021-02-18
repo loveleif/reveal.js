@@ -22,6 +22,8 @@
     p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #738a05; background-color: #fcf4dc}
     p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #bd3613; background-color: #fcf4dc}
     p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #bd3613; background-color: #fcf4dc; min-height: 17.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #738a05; background-color: #fcf4dc; min-height: 17.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #8c8c8c; background-color: #fcf4dc}
     span.s1 {color: #475b62}
     span.s2 {color: #269286}
     span.s3 {color: #819090}
@@ -32,6 +34,7 @@
     span.s8 {color: #bd3613}
     span.s9 {color: #2176c7}
     span.s10 {color: #16abad}
+    span.s11 {color: #a57705}
   </style>
 </head>
 <body>
@@ -143,8 +146,9 @@
 <p class="p1"><i><span class="Apple-converted-space">  </span>* Scala 3, enums</i></p>
 <p class="p1"><i><span class="Apple-converted-space">  </span>*/</i></p>
 <p class="p2"><i></i><br></p>
-<p class="p6"><span class="s3"><b>enum </b></span>Color:</p>
+<p class="p6"><span class="s3"><b>enum </b></span>Color {</p>
 <p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>case </b></span>Red, Green, Blue</p>
+<p class="p6">}</p>
 <p class="p5"><br></p>
 <p class="p1"><i>/**</i></p>
 <p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, implicit conversions</i></p>
@@ -264,6 +268,57 @@
 <p class="p5"><br></p>
 <p class="p10"><i>assert</i><span class="s1">(</span><b><i>couldBeAString </i></b><span class="s1">!= </span><span class="s3"><b>null</b></span><span class="s1">)</span></p>
 <p class="p10"><i>println</i><span class="s1">(</span><b><i>couldBeAString</i></b><span class="s1">.size)</span></p>
+<p class="p5"><br></p>
+<p class="p1"><i>/**</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, foreign linker API to replace JNI</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p2"><i></i><br></p>
+<p class="p6"><span class="s6">var </span>libraryLookup = LibraryLookup.ofPath(Path.of( <span class="s2">"/home/me/helloworld.so"</span>));</p>
+<p class="p6"><span class="s6">var </span>symbol = libraryLookup.lookup(<span class="s2">"helloworld"</span>).get();</p>
+<p class="p6"><span class="s6">var </span>descriptor = FunctionDescriptor.ofVoid();</p>
+<p class="p6"><span class="s6">var </span>methodType = MethodType.methodType(Void.<span class="s5"><i>TYPE</i></span>);</p>
+<p class="p6"><span class="s6">var </span>methodHandle = CLinker.getInstance().downcallHandle(symbol.address(), methodType, descriptor);</p>
+<p class="p6">methodHandle.invokeExact();</p>
+<p class="p2"><i></i><br></p>
+<p class="p1"><i>/**</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, records (preview since JDK 14).</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p2"><i></i><br></p>
+<p class="p6"><span class="s11">public record</span> Node (<span class="s6">long </span>id, List&lt;String&gt; labels) {}</p>
+<p class="p2"><i></i><br></p>
+<p class="p16"><i></i><br></p>
+<p class="p1"><i>/**</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 15, hidden classes</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>*</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>* The runtime will see an improvement in footprint and performance relative</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>* to both ClassLoader::defineClass and Unsafe::defineAnonymousClass</i></p>
+<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p16"><i></i><br></p>
+<p class="p6"><span class="s6">byte</span>[] generatedByteCode = generateFusedPipeline();</p>
+<p class="p5"><br></p>
+<p class="p6">MethodHandles.Lookup lookup = MethodHandles.lookup();</p>
+<p class="p6">Class&lt;?&gt; pipelineClass = lookup.defineHiddenClass(generatedByteCode, <span class="s6">true</span>, <span class="s5"><i>NESTMATE</i></span>).lookupClass();</p>
+<p class="p5"><br></p>
+<p class="p6"><span class="s6">var </span>constructor = pipelineClass.getConstructor();</p>
+<p class="p6"><span class="s6">var </span>pipeline = (Pipeline) constructor.newInstance();</p>
+<p class="p6">pipeline.operate();</p>
+<p class="p2"><i></i><br></p>
+<p class="p2"><i></i><br></p>
+<p class="p17"><i>/**</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, Foreign-Memory Access API (incubator since JDK 14)</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*<span class="Apple-converted-space"> </span></i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* Introduce an API to allow Java programs to safely and efficiently access<span class="Apple-converted-space"> </span></i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* foreign memory outside of the Java heap.</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p16"><i></i><br></p>
+<p class="p6">ValueLayout elementLayout = MemoryLayout.ofValueBits(<span class="s8">32</span>, ByteOrder.nativeOrder());</p>
+<p class="p6">SequenceLayout intArrayLayout = MemoryLayout.ofSequence(<span class="s8">25</span>, elementLayout);</p>
+<p class="p6">VarHandle handle = intArrayLayout.varHandle(<span class="s6">int</span>.<span class="s6">class</span>, MemoryLayout.PathElement.sequenceElement());</p>
+<p class="p6"><span class="s6">try </span>(MemorySegment segment = MemorySegment.allocateNative(intArrayLayout)) {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">for </span>(<span class="s6">int </span>i = <span class="s8">0</span>; i &lt; intArrayLayout.elementCount().getAsLong(); i++) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span>handle.set(segment, (<span class="s6">long</span>) i, i*<span class="s8">2</span>);</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6">}</p>
 <p class="p5"><br></p>
 <p class="p2"><i></i><br></p>
 <p class="p5"><br></p>
