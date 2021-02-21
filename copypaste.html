@@ -320,6 +320,50 @@
 <p class="p6"><span class="Apple-converted-space">    </span>}</p>
 <p class="p6">}</p>
 <p class="p5"><br></p>
+<p class="p17"><i>/*</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, Vector API</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p16"><i></i><br></p>
+<p class="p6"><span class="s6">float </span>vanillaDotProduct(<span class="s6">float</span>[] left, <span class="s6">float</span>[] right) {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">var </span>sum = <span class="s8">0f</span>;</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">for </span>(<span class="s6">int </span>i = <span class="s8">0</span>; i &lt; left.<span class="s7">length</span>; ++i) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span>sum = Math.fma(left[i], right[i], sum);</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">return </span>sum;</p>
+<p class="p6">}</p>
+<p class="p5"><br></p>
+<p class="p6"><span class="s6">float </span>vectorDotProduct(<span class="s6">float</span>[] left, <span class="s6">float</span>[] right) {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">var </span>species = FloatVector.<span class="s5"><i>SPECIES_PREFERRED</i></span>;</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">var </span>sum = FloatVector.zero(species);</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">for </span>(<span class="s6">int </span>i = <span class="s8">0</span>; i &lt; left.<span class="s7">length</span>; i += sum.elementSize()) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s6">var </span>l = FloatVector.fromArray(species, left, i);</p>
+<p class="p6"><span class="Apple-converted-space">        </span><span class="s6">var </span>r = FloatVector.fromArray(species, right, i);</p>
+<p class="p6"><span class="Apple-converted-space">        </span>sum = l.fma(r, sum);</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">return </span>sum.reduceLanes(<span class="s5"><i>ADD</i></span>);</p>
+<p class="p6">}</p>
+<p class="p2"><i></i><br></p>
+<p class="p17"><i>/*</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, pattern matching of instanceof (preview since JDK 14)</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p16"><i></i><br></p>
+<p class="p6"><span class="s6">void </span>patternMatching(Object matchMe) {</p>
+<p class="p6"><span class="Apple-converted-space">    </span><span class="s6">if </span>(matchMe <span class="s6">instanceof </span>String s &amp;&amp; s.length() &gt; <span class="s8">5</span>) {</p>
+<p class="p6"><span class="Apple-converted-space">        </span>System.<span class="s5"><i>out</i></span>.println(<span class="s2">"Match: " </span>+ s);</p>
+<p class="p6"><span class="Apple-converted-space">    </span>}</p>
+<p class="p6">}</p>
+<p class="p2"><i></i><br></p>
+<p class="p2"><i></i><br></p>
+<p class="p17"><i>/*</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, sealed classes (preview since JDK 15)</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*</i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*<span class="Apple-converted-space"> </span></i></p>
+<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
+<p class="p2"><i></i><br></p>
+<p class="p6"><span class="s6">sealed</span> <span class="s6">interface </span>AnyValue <span class="s6">permits</span> NodeValue, RelationshipValue { }</p>
+<p class="p5"><br></p>
+<p class="p6"><span class="s6">class </span>NodeValue <span class="s6">extends </span>AnyValue { }</p>
+<p class="p6"><span class="s6">class </span>RelationshipValue <span class="s6">extends </span>AnyValue { }</p>
 <p class="p2"><i></i><br></p>
 <p class="p5"><br></p>
 </body>
