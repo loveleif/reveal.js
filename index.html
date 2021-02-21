@@ -53,7 +53,6 @@
 					&nbsp*/
 				</section>
 				<section>
-					<div style="background: red; position: relative; left: 0; top: 0; width: 100%; height: 100px;"></div>
 					<p class="p1"><i>/**</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, records (preview since JDK 14).</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
@@ -392,15 +391,12 @@
 
 			</div>
 
-			<div style="position: absolute; width: 100%; bottom: 0; font-size: 14px; margin-bottom: 1rem; margin-left: 1rem; color: #819090;">
-				Useful? [██████████████----------------------------------] 6/22 18%
-			</div>
+			<span id="usefulness" style="position: absolute; width: 100%; bottom: 0; font-size: 18px; margin-bottom: 1rem; margin-left: 1rem; color: #819090;">
+
+			</span>
 		</div>
 
 		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -411,8 +407,64 @@
 				controlsTutorial: false,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ ]
 			});
+			Reveal.on( 'slidechanged', event => {
+				document.getElementById('usefulness').hidden = true
+				let data = {token: 'pleeeasebekindthanks', electionName: `Slide ${event.indexh}`};
+				fetch('http://localhost:9000/api/election/start', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data)
+				});
+
+				setTimeout(() => {
+					document.getElementById('usefulness').hidden = false
+				}, 700)
+			} );
+		</script>
+		<script>
+			const voteStatusWidth = 24
+			const poll = true
+			function voteCount(candidateId, results) {
+				let result = results.voteCount.find(v => v.candidateId === candidateId)
+				if (result === undefined) {
+					return 0
+				} else {
+					return result.count
+				}
+			}
+			function voteStatusString(results) {
+				let sum = results.voteCount.map(r => r.count).reduce((a, b) => a + b, 0)
+				if (sum === 0) {
+					return ""
+				} else {
+					let votedYes = voteCount(0, results)
+					let filledBlocks = Math.round((votedYes / sum) * voteStatusWidth)
+					let dashes = voteStatusWidth - filledBlocks
+					let percent = Math.round(100 * votedYes/sum)
+					return `Useful? [${"█".repeat(filledBlocks)}${"-".repeat(dashes)}] ${votedYes}/${sum} ${percent}%`
+				}
+			}
+			function updateVoteStatusHtml(results) {
+				let statusString = voteStatusString(results)
+				let element = document.getElementById('usefulness')
+				let currentString = element.innerHTML
+				if (statusString !== currentString) {
+					element.innerHTML = statusString
+				}
+			}
+			function updateVoteStatus() {
+				fetch('http://localhost:9000/api/election/current/results')
+						.then(response => response.json())
+						.then(results => updateVoteStatusHtml(results))
+						.finally((info) => {
+							if (poll) setTimeout(() => updateVoteStatus(true), 500)
+						})
+			}
+			updateVoteStatus()
 		</script>
 	</body>
 </html>
