@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #475b62; background-color: #fcf4dc}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #bd3613; background-color: #fcf4dc}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #269286; background-color: #fcf4dc}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #475b62; background-color: #fcf4dc; min-height: 17.0px}
+    span.s1 {color: #a57706}
+    span.s2 {color: #475b62}
+    span.s3 {color: #bd3613}
+    span.s4 {color: #269286}
+    span.s5 {color: #c61c6f}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">class </span>CQSort {</p>
+<p class="p1"><span class="Apple-converted-space">    </span><span class="s1">int</span>[] sort(<span class="s1">int</span>[] sortMe) <span class="s1">throws </span>Throwable {</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><i>// void qsort(void *base, size_t nmemb, size_t size,</i></p>
+<p class="p2"><i><span class="Apple-converted-space">        </span>// <span class="Apple-converted-space">  </span>int (*compar)(const void *, const void *));</i></p>
+<p class="p1"><span class="s3"><i><span class="Apple-converted-space">        </span></i></span>MethodHandle qsort = CLinker.getInstance().downcallHandle(</p>
+<p class="p1"><span class="Apple-converted-space">            </span>LibraryLookup.ofDefault().lookup( <span class="s4">"qsort"</span>).get(),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>methodType(<span class="s1">void</span>.<span class="s1">class</span>, MemoryAddress.<span class="s1">class</span>, <span class="s1">long</span>.<span class="s1">class</span>,</p>
+<p class="p1"><span class="Apple-converted-space">                       </span><span class="s1">long</span>.<span class="s1">class</span>, MemoryAddress.<span class="s1">class</span>),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>FunctionDescriptor.ofVoid(<span class="s5"><i>C_POINTER</i></span>, <span class="s5"><i>C_LONG</i></span>, <span class="s5"><i>C_LONG</i></span>, <span class="s5"><i>C_POINTER</i></span>)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>MethodHandle comparHandle = MethodHandles.lookup().findStatic(</p>
+<p class="p1"><span class="Apple-converted-space">            </span>CQSort.<span class="s1">class</span>,</p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span>"qSortCompare"<span class="s2">,</span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>methodType(<span class="s1">int</span>.<span class="s1">class</span>, MemoryAddress.<span class="s1">class</span>, MemoryAddress.<span class="s1">class</span>)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>MemorySegment comparFunc = CLinker.getInstance()</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.upcallStub(comparHandle, FunctionDescriptor.of(<span class="s5"><i>C_INT</i></span>, <span class="s5"><i>C_POINTER</i></span>, <span class="s5"><i>C_POINTER</i></span>));</p>
+<p class="p4"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span><span class="s1">try </span>(MemorySegment array = MemorySegment.allocateNative(<span class="s3">4 </span>* <span class="s3">5</span>)) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>array.copyFrom(MemorySegment.ofArray(sortMe));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>qsort.invokeExact(array.address(), <span class="s3">10L</span>, <span class="s3">4L</span>, comparFunc.address());</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">int</span>[] sorted = array.toIntArray();</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">return </span>sorted;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p4"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span><span class="s1">static int </span>qSortCompare(MemoryAddress addr1, MemoryAddress addr2) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span><span class="s1">int </span>a = getIntAtOffset(ofNativeRestricted(), addr1.toRawLongValue());</p>
+<p class="p1"><span class="Apple-converted-space">        </span><span class="s1">int </span>b = getIntAtOffset(ofNativeRestricted(), addr2.toRawLongValue());</p>
+<p class="p1"><span class="Apple-converted-space">        </span><span class="s1">return </span>a - b;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+</body>
+</html>

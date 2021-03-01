@@ -53,23 +53,29 @@
 					&nbsp*/
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, records (preview since JDK 14).</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
 					<p class="p6"><span class="s11">public record</span> Node (<span class="s6">long </span>id, List&lt;String&gt; labels) {}</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
-					<p class="p1"><i><span class="Apple-converted-space">  </span>* Scala 3, enums</i></p>
-					<p class="p1"><i><span class="Apple-converted-space">  </span>*/</i></p>
-					<p class="p2"><i></i><br></p>
+					<p class="p1"><i>/*</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, enums</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><br></p>
 					<p class="p6"><span class="s3"><b>enum </b></span>Color {</p>
 					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>case </b></span>Red, Green, Blue</p>
 					<p class="p6">}</p>
+					<p class="p2"><br></p>
+					<p class="p6"><span class="s3"><b>enum </b></span>Option[+T] {</p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>case </b></span>Some(x: T)</p>
+					<p class="p6"><span class="Apple-converted-space">  </span><span class="s3"><b>case </b></span>None</p>
+					<p class="p6">}</p>
+
 				</section>
 				<section>
-					<p class="p17"><i>&nbsp;/*</i></p>
+					<p class="p17"><i>/*</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, sealed classes (preview since JDK 15)</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -79,7 +85,7 @@
 					<p class="p6"><span class="s6">class </span>RelationshipValue <span class="s6">extends </span>AnyValue { }</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i>/*<span class="Apple-converted-space"> </span></i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, new keyword is optional</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><b></b><br></p>
@@ -90,7 +96,7 @@
 					<p class="p6">ImEasyToInstantiate(<span class="s2">"universal apply methods"</span>).hello()</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 15, hidden classes</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* The runtime will see an improvement in footprint and performance relative</i></p>
@@ -107,9 +113,9 @@
 					<p class="p6">pipeline.operate();</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
-					<p class="p1"><i><span class="Apple-converted-space">  </span>* Scala 3, union types</i></p>
-					<p class="p1"><i><span class="Apple-converted-space">  </span>*/</i></p>
+					<p class="p1"><i>/*</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, union types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
 					<p class="p14"><span class="s3"><b>def </b></span><span class="s9">biCurious</span><span class="s1">(</span><span class="s7">input</span><span class="s1">: </span>String <span class="s1">| </span>Int<span class="s1">): </span>Unit <span class="s1">= {</span></p>
 					<p class="p12"><span class="s1"><span class="Apple-converted-space">  </span></span>input <span class="s3"><b>match </b></span><span class="s1">{</span></p>
@@ -143,20 +149,59 @@
 					<p class="p6">}</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, foreign linker API to replace JNI</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
-					<p class="p6"><span class="s6">var </span>libraryLookup = LibraryLookup.ofPath(Path.of( <span class="s2">"/home/me/helloworld.so"</span>));</p>
+					<p class="p5"><span class="s6">class </span>CQSort {</p>
+					<p class="p5"><span class="Apple-converted-space">    </span><span class="s6">int</span>[] sort(<span class="s6">int</span>[] sortMe) <span class="s6">throws </span>Throwable {</p>
+					<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><i>// void qsort(void *base, size_t nmemb, size_t size,</i></p>
+					<p class="p1"><i><span class="Apple-converted-space">        </span>// <span class="Apple-converted-space">  </span>int (*compar)(const void *, const void *));</i></p>
+					<p class="p5"><span class="s8"><i><span class="Apple-converted-space">        </span></i></span>MethodHandle qsort = CLinker.getInstance().downcallHandle(</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>LibraryLookup.ofDefault().lookup(<span class="s2">"qsort"</span>).get(),</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>methodType(<span class="s6">void</span>.<span class="s6">class</span>, MemoryAddress.<span class="s6">class</span>, <span class="s6">long</span>.<span class="s6">class</span>,</p>
+					<p class="p5"><span class="Apple-converted-space">                       </span><span class="s6">long</span>.<span class="s6">class</span>, MemoryAddress.<span class="s6">class</span>),</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>FunctionDescriptor.ofVoid(<span class="s5"><i>C_POINTER</i></span>, <span class="s5"><i>C_LONG</i></span>, <span class="s5"><i>C_LONG</i></span>, <span class="s5"><i>C_POINTER</i></span>)</p>
+					<p class="p5"><span class="Apple-converted-space">        </span>);</p>
+					<p class="p5"><span class="Apple-converted-space">        </span>MethodHandle comparHandle = MethodHandles.lookup().findStatic(</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>CQSort.<span class="s6">class</span>,</p>
+					<p class="p3"><span class="s1"><span class="Apple-converted-space">            </span></span>"qSortCompare"<span class="s1">,</span></p>
+					<p class="p5"><span class="Apple-converted-space">            </span>methodType(<span class="s6">int</span>.<span class="s6">class</span>, MemoryAddress.<span class="s6">class</span>, MemoryAddress.<span class="s6">class</span>)</p>
+					<p class="p5"><span class="Apple-converted-space">        </span>);</p>
+					<p class="p5"><span class="Apple-converted-space">        </span>MemorySegment comparFunc = CLinker.getInstance()</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>.upcallStub(comparHandle, FunctionDescriptor.of(<span class="s5"><i>C_INT</i></span>, <span class="s5"><i>C_POINTER</i></span>, <span class="s5"><i>C_POINTER</i></span>));</p>
+					<p class="p5"><br></p>
+					<p class="p5"><span class="Apple-converted-space">        </span><span class="s6">try </span>(MemorySegment array = MemorySegment.allocateNative(<span class="s8">4L </span>* <span class="s1">sortMe.length</span>)) {</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>array.copyFrom(MemorySegment.ofArray(sortMe));</p>
+					<p class="p5"><span class="Apple-converted-space">            </span>qsort.invokeExact(array.address(), <span class="s1">sortMe.length</span>, <span class="s8">4L</span>, comparFunc.address());</p>
+					<p class="p5"><span class="Apple-converted-space">            </span><span class="s6">int</span>[] sorted = array.toIntArray();</p>
+					<p class="p5"><span class="Apple-converted-space">            </span><span class="s6">return </span>sorted;</p>
+					<p class="p5"><span class="Apple-converted-space">        </span>}</p>
+					<p class="p5"><span class="Apple-converted-space">    </span>}</p>
+					<p class="p5"><br></p>
+					<p class="p5"><span class="Apple-converted-space">    </span><span class="s6">static int </span>qSortCompare(MemoryAddress addr1, MemoryAddress addr2) {</p>
+					<p class="p5"><span class="Apple-converted-space">        </span><span class="s6">int </span>a = getIntAtOffset(ofNativeRestricted(), addr1.toRawLongValue());</p>
+					<p class="p5"><span class="Apple-converted-space">        </span><span class="s6">int </span>b = getIntAtOffset(ofNativeRestricted(), addr2.toRawLongValue());</p>
+					<p class="p5"><span class="Apple-converted-space">        </span><span class="s6">return </span>a - b;</p>
+					<p class="p5"><span class="Apple-converted-space">    </span>}</p>
+					<p class="p5">}</p>
+				</section>
+				<!--
+				<section>
+					<p class="p1"><i>/*</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* JDK 16, foreign linker API to replace JNI</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
+					<p class="p2"><i></i><br></p>
+					<p class="p6"><span class="s6">var </span>libraryLookup = LibraryLookup.ofPath(Path.of(<span class="s2">"/home/me/helloworld.so"</span>));</p>
 					<p class="p6"><span class="s6">var </span>symbol = libraryLookup.lookup(<span class="s2">"helloworld"</span>).get();</p>
 					<p class="p6"><span class="s6">var </span>function = FunctionDescriptor.ofVoid();</p>
 					<p class="p6"><span class="s6">var </span>methodType = MethodType.methodType(Void.<span class="s5"><i>TYPE</i></span>);</p>
-					<p class="p6"><span class="s6">var </span>methodHandle = CLinker.getInstance().downcallHandle( symbol.address(), methodType, descriptor);</p>
+					<p class="p6"><span class="s6">var </span>methodHandle = CLinker.getInstance().downcallHandle(symbol.address(), methodType, descriptor);</p>
 					<p class="p6">methodHandle.invokeExact();</p>
 				</section>
-
+				-->
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, explicit nulls</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i><span class="Apple-converted-space">  </span></i></p>
@@ -178,7 +223,7 @@
 					<p class="p10"><i>println</i><span class="s1">(</span><b><i>couldBeAString</i></b><span class="s1">.size)</span></p>
 				</section>
 				<section>
-					<p class="p17"><i>&nbsp;/*</i></p>
+					<p class="p17"><i>/*</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, pattern matching of instanceof (preview since JDK 14)</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p16"><i></i><br></p>
@@ -189,7 +234,7 @@
 					<p class="p6">}</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, "Quiet" syntax<span class="Apple-converted-space">   </span></i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><b></b><br></p>
@@ -217,7 +262,7 @@
 					<p class="p5"><span class="s3"><b>catch case </b></span><span class="s5">ex</span>: <span class="s6">IOException </span>=&gt; handle()</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, Optional braces</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -230,10 +275,10 @@
 					<p class="p6"><span class="Apple-converted-space">      </span><span class="s3"><b>if </b></span>x &gt; <span class="s2">0 </span><span class="s3"><b>then</b></span></p>
 					<p class="p1"><b><span class="Apple-converted-space">        </span>val </b><span class="s1">a </span><span class="s4"><i>:: </i></span><span class="s1">b =</span></p>
 					<p class="p6"><span class="Apple-converted-space">          </span>x <span class="s9">:: </span><span class="s4"><b><i>Nil</i></b></span></p>
-					<p class="p10"><b><i><span class="Apple-converted-space">        </span></i></b><span class="s1">end </span><span class="s3"><b>val</b></span></p>
+					<p class="p10"><b><i><span class="Apple-converted-space">        </span></i></b><span class="s3"><b>end val</b></span></p>
 					<p class="p1"><b><span class="Apple-converted-space">        </span>var </b><span class="s4"><b><i>y </i></b></span><span class="s1">=</span></p>
 					<p class="p6"><span class="Apple-converted-space">        </span>x</p>
-					<p class="p6"><span class="Apple-converted-space">        </span>end y</p>
+					<p class="p6"><span class="Apple-converted-space">        </span><span class="s3"><b>end </b></span><span class="s4"><b><i>y</i></b></span></p>
 					<p class="p6"><span class="Apple-converted-space">        </span><span class="s3"><b>while </b></span><span class="s4"><b><i>y </i></b></span>&gt; <span class="s2">0 </span><span class="s3"><b>do</b></span></p>
 					<p class="p1"><b><span class="Apple-converted-space">          </span></b><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s4"><b><i>y</i></b></span><span class="s1">)</span></p>
 					<p class="p6"><span class="Apple-converted-space">          </span><span class="s4"><b><i>y </i></b></span>-= <span class="s2">1</span></p>
@@ -247,15 +292,15 @@
 					<p class="p1"><b><span class="Apple-converted-space">          </span></b><span class="s4"><i>println</i></span><span class="s1">(</span><span class="s2">"done"</span><span class="s1">)</span></p>
 					<p class="p6"><span class="Apple-converted-space">        </span><span class="s3"><b>end try</b></span></p>
 					<p class="p1"><b><span class="Apple-converted-space">      </span>end if</b></p>
-					<p class="p1"><b><span class="Apple-converted-space">    </span></b><span class="s1">end </span><b>this</b></p>
+					<p class="p1"><b><span class="Apple-converted-space">    </span></b><span class="s3"><b>end this</b></span></p>
 					<p class="p2"><b><span class="Apple-converted-space">  </span></b></p>
 					<p class="p1"><b><span class="Apple-converted-space">    </span>def </b><span class="s9">f</span><span class="s1">: </span><span class="s8">String</span></p>
 					<p class="p1"><span class="s8"><span class="Apple-converted-space">  </span></span><b>end </b><span class="s1">C</span></p>
 					<p class="p5"><br></p>
-					<p class="p6">end p2</p>
+					<p class="p6"><span class="s3"><b>end</b></span> p2</p>
 				</section>
 				<section>
-					<p class="p17"><i>&nbsp;/*</i></p>
+					<p class="p17"><i>/*</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, Vector API</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p16"><i></i><br></p>
@@ -280,7 +325,7 @@
 					<img src="images/vector.png" width="600"/>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, heavily revised implicits</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -309,7 +354,7 @@
 					<p class="p6">max(<span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">2</span>), <span class="s4"><b><i>List</i></b></span>(<span class="s2">1</span>, <span class="s2">3</span>))</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, implicit conversions</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -332,7 +377,7 @@
 					<p class="p6">}</p>
 				</section>
 				<section>
-					<p class="p17"><i>&nbsp;/*</i></p>
+					<p class="p17"><i>/*</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>* JDK 16, Foreign-Memory Access API (incubator since JDK 14)</i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>*<span class="Apple-converted-space"> </span></i></p>
 					<p class="p17"><i><span class="Apple-converted-space"> </span>* Introduce an API to allow Java programs to safely and efficiently access<span class="Apple-converted-space"> </span></i></p>
@@ -349,7 +394,7 @@
 					<p class="p6">}</p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Opaque types</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -369,7 +414,7 @@
 					<p class="p1"><b>val </b><span class="s1">y = nodeIdTwo * </span><span class="s2">2 </span><i>// Will also not work with opaque types</i></p>
 				</section>
 				<section>
-					<p class="p1"><i>&nbsp;/*</i></p>
+					<p class="p1"><i>/*</i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, dependent function types<span class="Apple-converted-space"> </span></i></p>
 					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 					<p class="p2"><i></i><br></p>
@@ -403,6 +448,31 @@
 					<p class="p1"><span class="Apple-converted-space">                               </span>complete <span class="Apple-converted-space">        </span>information)</p>
 					<p class="p1"><span class="Apple-converted-space">                             </span>information)</p>
 					<p class="p2"><br></p>
+				</section>
+				<section>
+					<p class="p1"><i>/*</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* Scala 3, there's more</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - inline is a new modifier that guarantees that a definition will be inlined</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Type class derivation automatically generate given instances for type<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* <span class="Apple-converted-space">  </span>classes which satisfy some simple conditions</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Context functions are functions with (only) context parameters</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Macros have been reworked</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - TASTy inspection</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Type lambdas lets one express a higher-kinded type directly, without a<span class="Apple-converted-space"> </span></i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* <span class="Apple-converted-space">  </span>type definition. </i><span class="s2">`</span><i>[X, Y] =&gt;&gt; Map[Y, X]</i><span class="s2">`</span></p>
+					<p class="p1"><span class="s2"><span class="Apple-converted-space"> </span></span><i>* - Match types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Polymorphic Function Types</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Trait parameters</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Transparant traits are suppressed in type inferense</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Export clauses</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Open classes</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - A new trait Matchable controls the ability to pattern match.</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - @threadUnsafe lazy val is faster but not thread safe</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - @targetName("otherName") on a def defines an alternative name</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* - Safe Initialization</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>* ...</i></p>
+					<p class="p1"><i><span class="Apple-converted-space"> </span>*/</i></p>
 				</section>
 
 			</div>
